@@ -1,0 +1,144 @@
+{
+    "activeFile": "snowboard.tmj",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "../hackaton-shoppyventure-test/map.tmj": {
+            "expandedGroupLayers": [
+                100
+            ],
+            "scale": 0.41658266129032256,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 788.5589836660617,
+                "y": 316.8638838475499
+            }
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Decoration": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Exterior": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Logo_Long": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Miscellaneous": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Other_Furniture": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Room_Builder": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Seats": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Special_Zones": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_Tables": {
+            "scaleInDock": 1
+        },
+        "../hackaton-shoppyventure-test/map.tmj#WA_User_Interface": {
+            "scaleInDock": 1
+        },
+        "map.tmj": {
+            "expandedGroupLayers": [
+                54
+            ],
+            "scale": 2.2198,
+            "selectedLayer": 12,
+            "viewCenter": {
+                "x": 495.7653842688529,
+                "y": 335.6158212451572
+            }
+        },
+        "map.tmj#WA_Decoration": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Exterior": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Logo_Long": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Miscellaneous": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Other_Furniture": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Room_Builder": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Seats": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Special_Zones": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_Tables": {
+            "scaleInDock": 1
+        },
+        "map.tmj#WA_User_Interface": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj": {
+            "expandedGroupLayers": [
+                2
+            ],
+            "scale": 0.4183,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 443.4616304087974,
+                "y": 297.63327755199623
+            }
+        },
+        "snowboard.tmj#WA_Decoration": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Exterior": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Logo_Long": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Miscellaneous": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Other_Furniture": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Room_Builder": {
+            "scaleInDock": 1.0337
+        },
+        "snowboard.tmj#WA_Seats": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Special_Zones": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_Tables": {
+            "scaleInDock": 1
+        },
+        "snowboard.tmj#WA_User_Interface": {
+            "scaleInDock": 1
+        }
+    },
+    "map.height": 21,
+    "map.lastUsedFormat": "json",
+    "map.width": 31,
+    "openFiles": [
+        "map.tmj",
+        "snowboard.tmj"
+    ],
+    "project": "snowboard.tmj.tiled-project",
+    "recentFiles": [
+        "map.tmj",
+        "snowboard.tmj"
+    ]
+}

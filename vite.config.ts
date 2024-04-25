@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import { defineConfig } from "vite";
 import { getMaps, getMapsOptimizers, getMapsScripts, LogLevel, OptimizeOptions } from "wa-map-optimizer-vite";
+import {configDotenv} from "dotenv";
 
 const maps = getMaps();
-
 let optimizerOptions: OptimizeOptions = {
     logs: process.env.LOG_LEVEL && process.env.LOG_LEVEL in LogLevel ? LogLevel[process.env.LOG_LEVEL] : LogLevel.NORMAL,
 };
@@ -27,6 +27,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: "./index.html",
+                item_card: "./item_card.html",
                 ...getMapsScripts(maps),
             },
         },
@@ -42,4 +43,8 @@ export default defineConfig({
         },
         open: "/",
     },
+    define: {
+        "process.env": process.env,
+        "apiUrl": "https",
+    }
 });

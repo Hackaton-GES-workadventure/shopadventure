@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Card</title>
+</head>
+<body>
+<!-- create CSS and a card for a shopify storefront api -->
+<style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    .card p {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    .card button {
+        background-color: #f0c040;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background-color: #f0a040;
+    }
+
+    .card button:active {
+        background-color: #f08040;
+    }
+
+    .card button:focus {
+        outline: none;
+    }
+    </style>
+    <div class="card">
+        <img src="https://via.placeholder.com/300" alt="Product image">
+        <h2>Product name</h2>
+        <p>Product description</p>
+        <button>Add to cart</button>
+    </div>
+</body>
+</html>
