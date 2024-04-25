@@ -7,11 +7,8 @@ let currentPopup: any = undefined;
 
 // Waiting for the API to be ready
 WA.onInit().then(async () => {
-    console.clear();
-
     const mapData = await WA.room.getTiledMap();
-    const mapSingleton = MapSingleton.getInstance(mapData);
-    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    const map = await MapSingleton.getInstance(mapData);
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
@@ -28,3 +25,5 @@ function closePopup(){
 
 
 export {};
+
+

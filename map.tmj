@@ -7,86 +7,11 @@
          "layers":[
                 {
                  "draworder":"topdown",
-                 "id":98,
-                 "name":"Test",
+                 "id":108,
+                 "name":"zoneList",
                  "objects":[],
                  "opacity":1,
-                 "properties":[
-                        {
-                         "name":"component",
-                         "type":"string",
-                         "value":"Test"
-                        }, 
-                        {
-                         "name":"id",
-                         "type":"int",
-                         "value":10
-                        }],
                  "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "id":103,
-                 "layers":[
-                        {
-                         "draworder":"topdown",
-                         "id":107,
-                         "name":"Copie de Copie de Test",
-                         "objects":[],
-                         "opacity":1,
-                         "properties":[
-                                {
-                                 "name":"component",
-                                 "type":"string",
-                                 "value":"Test"
-                                }, 
-                                {
-                                 "name":"id",
-                                 "type":"int",
-                                 "value":3
-                                }],
-                         "type":"objectgroup",
-                         "visible":true,
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "id":105,
-                         "layers":[
-                                {
-                                 "draworder":"topdown",
-                                 "id":106,
-                                 "name":"Copie de Test",
-                                 "objects":[],
-                                 "opacity":1,
-                                 "properties":[
-                                        {
-                                         "name":"component",
-                                         "type":"string",
-                                         "value":"Test"
-                                        }, 
-                                        {
-                                         "name":"id",
-                                         "type":"int",
-                                         "value":3
-                                        }],
-                                 "type":"objectgroup",
-                                 "visible":true,
-                                 "x":0,
-                                 "y":0
-                                }],
-                         "name":"Groupe de Calques 3",
-                         "opacity":1,
-                         "type":"group",
-                         "visible":true,
-                         "x":0,
-                         "y":0
-                        }],
-                 "name":"Groupe 2",
-                 "opacity":1,
-                 "type":"group",
                  "visible":true,
                  "x":0,
                  "y":0
@@ -98,8 +23,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":108,
- "nextobjectid":37,
+ "nextlayerid":109,
+ "nextobjectid":58,
  "orientation":"orthogonal",
  "properties":[
         {
