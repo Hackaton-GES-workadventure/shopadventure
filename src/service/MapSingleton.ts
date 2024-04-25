@@ -32,7 +32,7 @@ class MapSingleton {
         if (layer.name === "zoneList" && layer.objects) {
             for (const object of layer.objects) {
                 const properties = this.convertPropertiesToObject(object.properties);
-                if (object.name.startsWith("zone") && !object.name.includes("trg")) {
+                if (!object.name.includes("trg")) {
                     const ZoneClass = await this.loadComponentDynamically(properties.component);
                     const zone = new ZoneClass(properties, object.name);
                     this.zones.push(zone);
