@@ -56,7 +56,7 @@ WA.onInit().then(() => {
                         currentPopup.close();
 
                         if (data.data.product !== null) {
-                            currentPopup = WA.ui.openPopup(`${area.name}_popup`,  "<img src='https://example.com/your-image.jpg' alt='Descriptive text for the image'>", [
+                            currentPopup = WA.ui.openPopup(`${area.name}_popup`, `${data.data.product.title}`, [
                                 {
                                     label: "Ajouter au panier",
                                     className: "primary",
