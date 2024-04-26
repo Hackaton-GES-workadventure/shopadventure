@@ -8,7 +8,6 @@ let currentPopup: any = undefined;
 // Waiting for the API to be ready
 WA.onInit().then(async () => {
     const mapData = await WA.room.getTiledMap();
-    WA.player.getWokaPicture();
     const map = await MapSingleton.getInstance(mapData);
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
