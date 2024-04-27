@@ -20,6 +20,10 @@ export class Zone {
         return this.triggers.find(trigger => trigger.name === `${this.name}_trg_${triggerName}`);
     }
 
+    getTriggers() {
+        return this.triggers;
+    }
+
     formatId(elementName: string) {
         return `${this.name}_${elementName}`;
     }
