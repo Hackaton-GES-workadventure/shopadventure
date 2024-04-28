@@ -9,6 +9,7 @@ let currentPopup: any = undefined;
 WA.onInit().then(async () => {
     const mapData = await WA.room.getTiledMap();
     const map = await MapSingleton.getInstance(mapData);
+    console.log(map.zones);
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));

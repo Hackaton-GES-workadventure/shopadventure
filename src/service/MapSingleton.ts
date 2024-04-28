@@ -2,7 +2,7 @@ class MapSingleton {
     static instance = null;
     map;
     zones = [];
-
+    loadedZones = [];
     constructor(map) {
         if (MapSingleton.instance)
             throw new Error("You can only create one instance of MapSingleton!");
@@ -28,27 +28,51 @@ class MapSingleton {
         return obj;
     }
 
-    async collectZones(layer) {
-        if (layer.name === "zoneList" && layer.objects) {
-            for (const object of layer.objects) {
-                const properties = this.convertPropertiesToObject(object.properties);
-                if (!object.name.includes("trg")) {
-                    const ZoneClass = await this.loadComponentDynamically(properties.component);
-                    const zone = new ZoneClass(properties, object.name);
-                    this.zones.push(zone);
-                } else if (object.name.includes("trg")) {
-                    const zoneName = object.name.split('_trg_')[0];
-                    const zone = this.zones.find(z => z.name === zoneName);
-                    if (zone) {
-                        zone.addTrigger({ name: object.name, ...properties });
-                    }
-                }
-            }
+    dependsOnToArray(properties) {
+        if (properties.depends_on && typeof properties.depends_on === 'string')
+            properties.depends_on = properties.depends_on.split(',');
+    }
+    checkDependency(zone){
+        let dependencies = zone.properties.depends_on;
+        if(!dependencies){
+            this.loadedZones.push(zone);
+             return true;
         }
-        if (layer.layers) {
-            for (const subLayer of layer.layers) {
-                await this.collectZones(subLayer); // Await recursive calls
+
+        for(let dependency of dependencies) {
+            if(!this.loadedZones.find(loadedZone => loadedZone.properties.component == dependency ))
+                return false;
+        }
+        this.loadedZones.push(zone);
+
+        return true;
+
+    }
+    async collectZones(layer) {
+        let zones = layer.objects.filter(item => !item.name.includes("_trg")).map(zone => {
+            let properties = this.convertPropertiesToObject(zone.properties);
+            this.dependsOnToArray(properties);
+            zone.properties = properties;
+            return zone;
+        });
+        let triggers = layer.objects.filter(item => item.name.includes("_trg"));
+
+        do{
+            for (let i = 0; i < zones.length; i++) {
+                let zone = zones[i];
+                if(!this.checkDependency(zone))
+                    continue;
+                const ZoneClass = await this.loadComponentDynamically(zone.properties.component);
+                const zoneInstance = new ZoneClass(zone.properties, zone.name);
+                this.zones.push(zoneInstance);
+                zones.splice(i, 1);
             }
+        }while(zones.length > 0)
+        // Traiter les triggers après les zones
+        for (const trigger of triggers) {
+            let properties = trigger.properties ? this.convertPropertiesToObject(trigger.properties) : {};
+            let zoneName = trigger.name.split('_trg_')[0];
+            this.zones.find(zone => zone.name === zoneName).addTrigger(properties);
         }
     }
 
@@ -59,11 +83,8 @@ class MapSingleton {
 
     async initializeAsync() {
         this.zones = [];
-        if (this.map && this.map.layers) {
-            for (const layer of this.map.layers) {
-                await this.collectZones(layer);
-            }
-        }
+        const layer = this.map.layers.find(item => item.name === "zoneList");
+        await this.collectZones(layer);
     }
 
     getZone(zoneName) {

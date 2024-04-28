@@ -10,25 +10,32 @@ export class Cart extends Zone {
 
     async init(){
         await this.getPlayerCartToken();
+        this.createCartMenuButton();
     }
     createCartMenuButton() {
         WA.ui.actionBar.addButton({
             id: this.formatId('cartMenuBtn'),
             label: 'Ouvrir votre panier',
             callback: (event) => {
-
+                this.createCartMenuPopup();
             }
         });
     }
 
     createCartMenuPopup() {
+        WA.ui.modal.closeModal();
+        WA.ui.modal.openModal({
+            title: "Votre panier",
+            src: import.meta.env.VITE_APP_URL+'/cart_menu_popup.html',
+            allow: "fullscreen",
+            allowApi: true,
+            position: "center"
+        });
 
     }
 
 
     async getPlayerCartToken() {
-        console.log(WA.player.state.cartToken);
-
         if (WA.player.state.cartToken)
             return WA.player.state.cartToken;
         try {
@@ -37,7 +44,6 @@ export class Cart extends Zone {
         } catch (error) {
             console.error("Failed to create cart token:", error);
         }
-
     }
 
 
