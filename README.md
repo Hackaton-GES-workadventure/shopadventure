@@ -1,55 +1,44 @@
-# WorkAdventure Map Starter Kit
+# ShopAdventure - Hackaton ESGI / ICAN / ECITV
 
+![logo](./shopadventure.png)
 ![map](./map.png)
 
-This is a starter kit to help you build your own map for [WorkAdventure](https://workadventu.re).
+Le projet a pour but de créer une autre canal de vente pour les personnes possédant une boutique Shopify.
+Le but est de un espace en ligne où les joueurs pourront se balader et acheter des produits de A à Z sans sortir de WorkAdventure.
 
-To understand how to use this starter kit, follow the tutorial at [https://workadventu.re/map-building](https://workadventu.re/map-building).
-
-## Structure
-* *public*: Static files like PDFs or audio files
-* *src*: Scripts files
-* *tilesets*: All tilesets
-* *map.tmj*: Map file
-* *map.png*: The map thumbnail displayed on the in-game map information
-
-If you want to use more than one map file, just add the new map file on root or in a folder.
-
-we recommend using 500x500 images for the map thumbnails.
-
-If you are going to create custom websites to embed in the map, please reference the HTML files in the `input` option in *vite.config.js*.
-
-## Requirements
-
-Node.js version >=17
+## Structure du projet
+Le projet reprend la structure par défaut du starter-kit de WorkAdventure.
+* *src*: Contient les scripts du projet
+  * *zones*: Contient les composants des zones de la map (précision plus bas)
+  * *api*: Contient les fichiers relatifs aux appels API d'un composant
 
 ## Installation
 
-With npm installed (comes with [node](https://nodejs.org/en/)), run the following commands into a terminal in the root directory of this project:
+Pour lancer le projet en local, changer les variables d'environnement dans le fichier `.env` et lancer les commandes suivantes :
+#### POUR POUVOIR TESTER LE PROJET, LES VARIABLES D'ENVIRONNEMENT SONT DÉLIBÉRÉMENT REMPLIES AVEC DE VRAIES INFORMATIONS.
 
 ```shell
 npm install
 npm run dev
 ```
 
-## Test production map
+## Utilisation
 
-You can test the optimized map as it will be in production:
-```sh
-npm run build
-npm run prod
-```
+Pour utiliser le projet, il suffit d'ouvrir le fichier `map.tmj` dans WorkAdventure et de modifier les attributs `shopify_id` des zones pour qu'elles correspondent à votre boutique Shopify.
 
-## Licenses
+### Fonctionnement des zones
 
-This project contains multiple licenses as follows:
+Dans notre projet, les zones sont définies par un attribut primordial : `component`.
+Cet attribut permet de définir le composant à appeler, et donc la logique à appliquer à la zone.
+Le nom du composant doit correspondre au nom du fichier dans le dossier `src/zones` sans le `.ts`.
 
-* [Code license](./LICENSE.code) *(all files except those for other licenses)*
-* [Map license](./LICENSE.map) *(`map.tmj` and the map visual as well)*
-* [Assets license](./LICENSE.assets) *(the files inside the `src/assets/` folder)*
+Exemple (pour le composant `Product`):
+![map](./zone.png)
 
-### About third party assets
+## Développeurs
 
-If you add third party assets in your map, do not forget to:
-1. Credit the author and license with the "tilesetCopyright" property present in the properties of each tilesets in the `map.tmj` file
-2. Add the license text in LICENSE.assets
+| Nom        | Prénom | Liste des tâches                                                                                                      |
+|------------|--------|-----------------------------------------------------------------------------------------------------------------------|
+| GRANDIN    | Victor | <li>Mise en place de la boutique Shopify<li>Essais de fetch onEnter d'une zone<li>Mise en place du composant 'Produit' |
+| AHMINDACHE | Jawad  | <li>Mise en place de la structure du code (et du format composant/service/api)<li>LE RESTE ICI                        |
+| IMAMI      | Hajar  |                                                                                                            |
