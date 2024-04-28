@@ -5,7 +5,7 @@
         {
          "draworder":"topdown",
          "id":95,
-         "name":"zoneList",
+         "name":"floorLayer",
          "objects":[
                 {
                  "height":86,

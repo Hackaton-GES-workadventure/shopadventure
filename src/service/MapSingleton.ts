@@ -83,7 +83,7 @@ class MapSingleton {
 
     async initializeAsync() {
         this.zones = [];
-        const layer = this.map.layers.find(item => item.name === "zoneList");
+        const layer = this.map.layers.find(item => item.name === "floorLayer");
         await this.collectZones(layer);
     }
 
