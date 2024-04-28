@@ -70,9 +70,8 @@ class MapSingleton {
         }while(zones.length > 0)
         // Traiter les triggers après les zones
         for (const trigger of triggers) {
-            let properties = trigger.properties ? this.convertPropertiesToObject(trigger.properties) : {};
             let zoneName = trigger.name.split('_trg_')[0];
-            this.zones.find(zone => zone.name === zoneName).addTrigger(properties);
+            this.zones.find(zone => zone.name === zoneName).addTrigger(trigger);
         }
     }
 

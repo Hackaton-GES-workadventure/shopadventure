@@ -6,8 +6,7 @@ import {MapSingleton} from "./service/MapSingleton";
 // Waiting for the API to be ready
 WA.onInit().then(async () => {
     const mapData = await WA.room.getTiledMap();
-    const map = await MapSingleton.getInstance(mapData);
-    console.log(map.zones);
+    const mapInstance = await MapSingleton.getInstance(mapData);
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));

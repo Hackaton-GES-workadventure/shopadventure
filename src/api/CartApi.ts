@@ -23,43 +23,56 @@ export class CartApi{
         else
             throw new Error('Failed to create cart: ' + response.data.cartCreate.userErrors.map(e => e.message).join(', '));
     }
-
-    async addToCart(cartId: string, line: { productId: string, quantity: number }) {
-        const mutation = `mutation addLineItem($cartId: ID!, $lines: [CartLineInput!]!) {
-            cartLinesAdd(cartId: $cartId, lines: $lines) {
-                cart {
+    async addToCart(cartId, line) {
+        console.log(cartId,line);
+        const mutation = `
+    mutation addLineItem($cartId: ID!, $lines: [CartLineInput!]!) {
+      cartLinesAdd(cartId: $cartId, lines: $lines) {
+        cart {
+          id
+          lines(first: 10) {
+            edges {
+              node {
+                id
+                merchandise {
+                  ... on ProductVariant {
                     id
-                    lines {
-                        id
-                        merchandise {
-                            ... on ProductVariant {
-                                product {
-                                    title
-                                }
-                            }
-                        }
-                        quantity
-                    }
+                    title
+                  }
                 }
-                userErrors {
-                    field
-                    message
-                }
+                quantity
+              }
             }
-        }`;
+          }
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `;
         const variables = {
-            cartId: cartId,
+            cartId,
             lines: [{
                 merchandiseId: line.productId,
                 quantity: line.quantity
             }]
         };
-        const response = await this.client.get().request(mutation, variables);
-        if (response.data.cartLinesAdd.cart)
-            return response.data.cartLinesAdd.cart;
-        else
-            throw new Error('Failed to add to cart: ' + response.data.cartLinesAdd.userErrors.map(e => e.message).join(', '));
+
+        try {
+            const response = await this.client.get().request(mutation, variables);
+            console.log(response);
+            if (response.cartLinesAdd.cart) {
+                return response.cartLinesAdd.cart;
+            } else {
+                throw new Error('Failed to add to cart: ' + response.cartLinesAdd.userErrors.map(e => e.message).join(', '));
+            }
+        } catch (error) {
+            throw new Error('Failed to add to cart: ' + error.message);
+        }
     }
+
 
     async getCartInfo(cartId: string) {
         const query = `query getCartInfo($cartId: ID!) {
