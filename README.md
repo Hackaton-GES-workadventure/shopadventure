@@ -56,4 +56,4 @@ Exemple (pour le composant `Product`):
 |------------|--------|-----------------------------------------------------------------------------------------------------------------------|
 | GRANDIN    | Victor | <li>Mise en place de la boutique Shopify<li>Essais de fetch onEnter d'une zone<li>Mise en place du composant 'Produit' |
 | AHMINDACHE | Jawad  | <li>Mise en place de la structure du code (et du format composant/service/api)<li>Popup dynamique sur Product<Li>Mise en place du Cart                        |
-| IMAMI      | Hajar  |     <li>requete api vers api shopify checkout<li>                                                                                                       |
+| IMAMI      | Hajar  |     <li>requete api vers api shopify checkout                                                                                                   |
