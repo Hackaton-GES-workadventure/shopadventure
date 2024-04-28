@@ -15,6 +15,7 @@ Le projet reprend la structure par défaut du starter-kit de WorkAdventure.
 ## Installation
 
 Pour lancer le projet en local, changer les variables d'environnement dans le fichier `.env` et lancer les commandes suivantes :
+<br>(Note: pour récupérer votre clé d'API Storefront, rendez-vous sur votre page d'administration de boutique Shopify, puis dans "Canaux de vente" -> "Headless" -> "Storefront API" -> "Jeton d'accès public")
 #### POUR POUVOIR TESTER LE PROJET, LES VARIABLES D'ENVIRONNEMENT SONT DÉLIBÉRÉMENT REMPLIES AVEC DE VRAIES INFORMATIONS.
 
 ```shell
