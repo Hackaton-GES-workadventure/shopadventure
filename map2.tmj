@@ -3,29 +3,11 @@
  "infinite":false,
  "layers":[
         {
-         "draworder":"topdown",
-         "id":95,
-         "name":"floorLayer",
-         "objects":[
-                {
-                 "height":86,
-                 "id":27,
-                 "name":"Panier",
-                 "properties":[
-                        {
-                         "name":"component",
-                         "type":"string",
-                         "value":"Cart"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":126,
-                 "x":603,
-                 "y":354
-                }],
+         "id":94,
+         "layers":[],
+         "name":"Map",
          "opacity":1,
-         "type":"objectgroup",
+         "type":"group",
          "visible":true,
          "x":0,
          "y":0
@@ -829,6 +811,110 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":95,
+         "name":"floorLayer",
+         "objects":[
+                {
+                 "height":65.3333333333333,
+                 "id":20,
+                 "name":"Panier",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Cart"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":77.3333333333334,
+                 "x":513.333333333333,
+                 "y":208
+                }, 
+                {
+                 "height":75.3768844221105,
+                 "id":21,
+                 "name":"Product_1",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Product"
+                        }, 
+                        {
+                         "name":"depends_on",
+                         "type":"string",
+                         "value":"Cart"
+                        }, 
+                        {
+                         "name":"shopify_id",
+                         "type":"string",
+                         "value":"8537827180765"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":101.507537688442,
+                 "x":205.025125628141,
+                 "y":173.869346733668
+                }, 
+                {
+                 "height":100.502528140704,
+                 "id":22,
+                 "name":"Product_1_trg_popup",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":156.784381909548,
+                 "x":179.396753768844,
+                 "y":70.8542635678392
+                }, 
+                {
+                 "height":75.3769,
+                 "id":25,
+                 "name":"Product_2",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Product"
+                        }, 
+                        {
+                         "name":"depends_on",
+                         "type":"string",
+                         "value":"Cart"
+                        }, 
+                        {
+                         "name":"shopify_id",
+                         "type":"string",
+                         "value":"3422"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":101.508,
+                 "x":368.16742272262,
+                 "y":173.74725209826
+                }, 
+                {
+                 "height":100.503,
+                 "id":26,
+                 "name":"Product_2_trg_popup",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":156.784,
+                 "x":342.53942272262,
+                 "y":70.73255209826
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "id":51,
          "layers":[],
          "name":"above",
@@ -839,7 +925,7 @@
          "y":0
         }],
  "nextlayerid":96,
- "nextobjectid":30,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "properties":[
         {
