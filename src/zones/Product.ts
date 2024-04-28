@@ -3,51 +3,70 @@ import {ProductApi} from "../api/ProductApi.ts";
 
 export class Product extends Zone {
     private productApi: ProductApi = new ProductApi();
-    private currentPopup: any = undefined;
-
+    private currentPopup = null;
+    private productData = null;
     constructor(properties: object, zoneName: string) {
         super(properties, zoneName);
-        this.closePopup = this.closePopup.bind(this);
         this.init();
     }
 
     async init(){
-        const triggers = super.getTriggers();
-        const zoneName = this.name;
-        WA.room.area.onEnter(zoneName).subscribe(() => {
-
-            triggers.forEach((trigger) => {
-                this.currentPopup = WA.ui.openPopup(trigger.name, 'Chargement du produit...', []);
-
-                this.productApi.getProduct(this.shopify_id).then((data) => {
-
-                    const product = data.data.product;
-
-                    this.closePopup();
-                    if (product === null) {
-                        this.currentPopup = WA.ui.openPopup(trigger.name, 'Produit non trouvé', []);
-                        return;
-                    }
-                    this.currentPopup = WA.ui.openPopup(trigger.name, `${product.title}\n\n${product.description}`, [
-                        {
-                            label: "Ajouter au panier",
-                            className: "primary",
-                            callback: (popup) => {
-                                popup.close();
-                            }
-                        },
-                    ]);
-                });
-
-            });
-        });
-        WA.room.area.onLeave(zoneName).subscribe(this.closePopup);
+        this.showPopup();
     }
 
+    simplePopup(message: string){
+        this.closePopup();
+        this.currentPopup = WA.ui.openPopup(this.getTrigger('popup').name, message, []);
+    }
+    showPopup(){
+       WA.room.area.onEnter(this.name).subscribe(async () => {
+            this.simplePopup("Chargement en cours ...");
+            let product = await this.productApi.getProduct(this.shopify_id);
+            this.productData = product.data.product ?? null;
+            if(!this.productData)
+                this.simplePopup("Produit non trouvé");
+            else {
+                WA.player.state.currentProduct = this.productData;
+                this.showProductPopup();
+            }
+        });
+
+        WA.room.area.onLeave(this.name).subscribe(() => {
+            this.closePopup();
+        })
+    }
+    async showProductPopup(){
+        this.closePopup();
+        let trigger = this.getTrigger('popup');
+        let triggerPos = {
+            top: trigger.y,
+            left: trigger.x + trigger.width/2
+        };
+        let popup = await WA.ui.website.open({
+            allowApi: true,
+            url: import.meta.env.VITE_APP_URL + "/product_show.html",
+            position: {
+                vertical: "top",
+                horizontal: "left",
+            },
+            margin:{
+                top: triggerPos.top + "px",
+                left: triggerPos.left + "px",
+            },
+            size: {
+                height: (trigger.height*2) + "px",
+                width: (trigger.width*2) + "px"
+            },
+        });
+            this.currentPopup = popup;
+        }
     closePopup(){
-        if (this.currentPopup !== undefined) {
+        if(this.currentPopup) {
             this.currentPopup.close();
-            this.currentPopup = undefined;
+            this.currentPopup = null;
         }
     }
+
+
+
 }

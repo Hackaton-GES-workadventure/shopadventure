@@ -10,6 +10,7 @@ export class ProductApi{
     async getProduct(id: number) {
         const query = `query {
             product(id: "gid:\\/\\/shopify\\/Product\\/${id}") {
+                id,
                 title,
                 description,
                 featuredImage {
@@ -17,6 +18,7 @@ export class ProductApi{
                 }
             }
         }`;
-        return await this.client.get().request(query);
+        let response = await this.client.get().request(query);
+        return response;
     }
 }

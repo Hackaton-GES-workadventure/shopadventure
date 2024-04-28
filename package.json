@@ -20,6 +20,7 @@
   "dependencies": {
     "@shopify/shopify-api": "^9.7.2",
     "@shopify/storefront-api-client": "^0.3.4",
-    "@workadventure/scripting-api-extra": "^1.8.1"
+    "@workadventure/scripting-api-extra": "^1.8.1",
+    "graphql-relay": "^0.10.1"
   }
 }
